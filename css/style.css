@@ -1,0 +1,130 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+brown #ffd6a5
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;              /* to give a border around entire webpage */
+}
+
+.header {
+    height: 95vh;                     /* 95% of vertical height */
+    background-image:linear-gradient(
+        to right bottom,
+       rgba(126,213,111,0.8) ,
+        rgba(40, 180, 133, 0.8)), 
+        url(../img/hero.jpg);
+    background-size: cover;             /* trys to fit element into the box width wise */
+    background-position: top;
+    position:relative;  /* origin */
+    clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%)
+}
+.logo-box {                 /* container for thwe logo */
+position: absolute;
+top: 40px;  /* from origin above in header */
+left: 40px; /* from origin above in header */
+}
+
+.logo {     /* the logo */
+height: 35px;
+}
+ .text-box{
+    position:absolute;
+    top: 40%;               /*this margin work correctly and move the top edge to the 40% of height */
+                            /* we used 40% in place of 50% due to the bottom wedge cutout it looks more centered */
+    left: 50%;              /*this margin work correctly and move the left hand edge to the 50% of width */
+    transform: translate(-50%, -50%);   /* this moves the top and left edges back -50% and that is the center */
+    text-align: center;        /* this centers the button text in the middle of this tex-box */
+ }
+.heading-primary{
+color: #fff;
+text-transform: uppercase;
+backface-visibility: hidden;    /* a fix to hide the backface of the characters from showing. I cannot see it */
+margin-bottom: 60px;            /* to seperate the button underneath */
+}
+.heading-primary-main{
+    display:block;  /* this used to break one line of text into two parts */
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;  
+    animation-name: moveInLeft;      
+    animation-duration: 1s;  
+    animation-timing-function: ease-out;
+}
+/* animation-delay: 3s;
+animation-iteration-count: 3;
+animation-timing-function: ease-in;
+*/
+.heading-primary-sub{
+    display:block;                  /* this is used to break one line of text into two parts */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+ /*   animation: moveInRight;   */
+    animation: moveInRight 1s ease-out;
+}
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+transform: translateX(0);
+    }
+}
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80%{
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+transform: translateX(0);
+    }
+}
+
+.btn:link,
+.btn:visited{
+text-transform: uppercase;
+text-decoration: none;
+padding: 15px 40px;
+display: inline-block;
+border-radius: 100px;
+transition: all .2;
+}
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0.2);
+}
+.btn:active{
+    transform: translateY(-1px)
+    box-shadow: 0 5px 10px rgba(0,0,0.2);
+}
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
