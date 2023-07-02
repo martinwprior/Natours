@@ -7,19 +7,25 @@ Dark green: #28b485
 brown #ffd6a5
 */
 
-* {
+*,
+*::after,
+*::before {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    box-sizing: inherit;    /* allows the border box declared in body to be inherited in all declarations */
 
+}
+html{
+    font-size: 62.5%;               /* this equates to 10px . We use this here and rems in the code below. changing this figure will scale site up/down */
 }
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+/*    font-size: 16px;   */
     line-height: 1.7;
     color: #777;
-    padding: 30px;              /* to give a border around entire webpage */
+    padding: 3rem;              /* to give a border around entire webpage */
+    box-sizing: border-box;
 }
 
 .header {
@@ -36,12 +42,12 @@ body {
 }
 .logo-box {                 /* container for thwe logo */
 position: absolute;
-top: 40px;  /* from origin above in header */
-left: 40px; /* from origin above in header */
+top: 4rem;  /* from origin above in header */
+left: 4rem; /* from origin above in header */
 }
 
 .logo {     /* the logo */
-height: 35px;
+height: 3.5rem;
 }
  .text-box{
     position:absolute;
@@ -55,13 +61,13 @@ height: 35px;
 color: #fff;
 text-transform: uppercase;
 backface-visibility: hidden;    /* a fix to hide the backface of the characters from showing. I cannot see it */
-margin-bottom: 60px;            /* to seperate the button underneath */
+margin-bottom: 6rem;            /* to seperate the button underneath */
 }
 .heading-primary-main{
     display:block;  /* this used to break one line of text into two parts */
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;  
+    letter-spacing: 3.5rem;  
     animation-name: moveInLeft;      
     animation-duration: 1s;  
     animation-timing-function: ease-out;
@@ -72,19 +78,19 @@ animation-timing-function: ease-in;
 */
 .heading-primary-sub{
     display:block;                  /* this is used to break one line of text into two parts */
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
  /*   animation: moveInRight;   */
     animation: moveInRight 1s ease-out;
 }
 @keyframes moveInLeft{
     0%{
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     80%{
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {
@@ -95,10 +101,10 @@ transform: translateX(0);
 @keyframes moveInRight{
     0%{
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80%{
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -109,7 +115,7 @@ transform: translateX(0);
 @keyframes moveInBottom{
     0%{
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     
     100% {
@@ -122,19 +128,20 @@ transform: translateX(0);
 .btn:visited{
 text-transform: uppercase;
 text-decoration: none;
-padding: 15px 40px;
+padding: 1.5rem 4rem;
 display: inline-block;
-border-radius: 100px;
+border-radius: 10rem;
 transition: all .2;
 position: relative;     /* to allow positioning of the button background larger button .btn::after */
+font-size: 1.6rem;
 }
 .btn:hover{
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0.2);
 }
 .btn:active{
     transform: translateY(-1px)
-    box-shadow: 0 5px 10px rgba(0,0,0.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0.2);
 }
 .btn-white{
     background-color: #fff;
@@ -146,7 +153,7 @@ position: relative;     /* to allow positioning of the button background larger 
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position:absolute;
     top:0;
     left:0;
