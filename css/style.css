@@ -40,16 +40,16 @@ body {
     position:relative;  /* origin */
     clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%)
 }
-.logo-box {                 /* container for thwe logo */
+.header__logo-box {                 /* container for thwe logo */
 position: absolute;
 top: 4rem;  /* from origin above in header */
 left: 4rem; /* from origin above in header */
 }
 
-.logo {     /* the logo */
+.header__logo {     /* the logo */
 height: 3.5rem;
 }
- .text-box{
+ .header__text-box{
     position:absolute;
     top: 40%;               /*this margin work correctly and move the top edge to the 40% of height */
                             /* we used 40% in place of 50% due to the bottom wedge cutout it looks more centered */
@@ -63,7 +63,7 @@ text-transform: uppercase;
 backface-visibility: hidden;    /* a fix to hide the backface of the characters from showing. I cannot see it */
 margin-bottom: 6rem;            /* to seperate the button underneath */
 }
-.heading-primary-main{
+.heading-primary--main{
     display:block;  /* this used to break one line of text into two parts */
     font-size: 6rem;
     font-weight: 400;
@@ -76,7 +76,7 @@ margin-bottom: 6rem;            /* to seperate the button underneath */
 animation-iteration-count: 3;
 animation-timing-function: ease-in;
 */
-.heading-primary-sub{
+.heading-primary--sub{
     display:block;                  /* this is used to break one line of text into two parts */
     font-size: 2rem;
     font-weight: 700;
@@ -143,24 +143,24 @@ font-size: 1.6rem;
     transform: translateY(-1px)
     box-shadow: 0 .5rem 1rem rgba(0,0,0.2);
 }
-.btn-white{
+.btn--white{
     background-color: #fff;
     color: #777;
 }
 
 .btn::after {
     content: "";
-    display: inline-block;
+    display: inline-block; /* a mix of inline and block. occupies on content space, no line breaks, has box model(content, padding, margin) */
     height: 100%;
     width: 100%;
     border-radius: 10rem;
-    position:absolute;
+    position:absolute; /* element removed from normal flow, we use top, bottom, left, right to offset from its relatively positioned container */
     top:0;
     left:0;
     z-index: -1;
 transition: all .4s;
 }
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 
 }
@@ -169,7 +169,7 @@ transition: all .4s;
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;         /* applies the opacity: 0; in the @keyframes moveInButton  */
 }
