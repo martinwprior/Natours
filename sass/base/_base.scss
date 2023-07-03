@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+  /* allows the border box declared in body to be inherited in all declarations */ }
+
+html {
+  // this defines what 1 rem is
+  font-size: 62.5%;
+  /* this equates to 10px . We use this here and rems in the code below. changing this figure will scale site up/down */ }
+
+body {
+  box-sizing: border-box;
+}

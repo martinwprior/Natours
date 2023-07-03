@@ -1,91 +1,3 @@
-*,
-*::after,
-*::before {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: inherit;
-  /* allows the border box declared in body to be inherited in all declarations */ }
-
-html {
-  font-size: 62.5%;
-  /* this equates to 10px . We use this here and rems in the code below. changing this figure will scale site up/down */ }
-
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /*    font-size: 16px;   */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  /* to give a border around entire webpage */
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /* 95% of vertical height */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /* trys to fit element into the box width wise */
-  background-position: top;
-  position: relative;
-  /* origin */
-  clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%); }
-
-.header__logo-box {
-  /* container for thwe logo */
-  position: absolute;
-  top: 4rem;
-  /* from origin above in header */
-  left: 4rem;
-  /* from origin above in header */ }
-
-.header__logo {
-  /* the logo */
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  /*this margin work correctly and move the top edge to the 40% of height */
-  /* we used 40% in place of 50% due to the bottom wedge cutout it looks more centered */
-  left: 50%;
-  /*this margin work correctly and move the left hand edge to the 50% of width */
-  transform: translate(-50%, -50%);
-  /* this moves the top and left edges back -50% and that is the center */
-  text-align: center;
-  /* this centers the button text in the middle of this tex-box */ }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /* a fix to hide the backface of the characters from showing. I cannot see it */
-  margin-bottom: 6rem;
-  /* to seperate the button underneath */ }
-
-.heading-primary--main {
-  display: block;
-  /* this used to break one line of text into two parts */
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; }
-
-/* animation-delay: 3s;
-animation-iteration-count: 3;
-animation-timing-function: ease-in;
-*/
-.heading-primary--sub {
-  display: block;
-  /* this is used to break one line of text into two parts */
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /*   animation: moveInRight;   */
-  animation: moveInRight 1s ease-out; }
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -114,8 +26,56 @@ animation-timing-function: ease-in;
     opacity: 1;
     transform: translateY(0); } }
 
-.btn:link,
-.btn:visited {
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+  /* allows the border box declared in body to be inherited in all declarations */ }
+
+html {
+  font-size: 62.5%;
+  /* this equates to 10px . We use this here and rems in the code below. changing this figure will scale site up/down */ }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*    font-size: 16px;   */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  /* to give a border around entire webpage */ }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* a fix to hide the backface of the characters from showing. I cannot see it */
+  margin-bottom: 6rem;
+  /* to seperate the button underneath */ }
+  .heading-primary--main {
+    display: block;
+    /* this used to break one line of text into two parts */
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    /* this is used to break one line of text into two parts */
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /*   animation: moveInRight;   */
+    animation: moveInRight 1s ease-out; }
+
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -129,6 +89,9 @@ animation-timing-function: ease-in;
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -137,6 +100,8 @@ animation-timing-function: ease-in;
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
@@ -152,14 +117,60 @@ animation-timing-function: ease-in;
   z-index: -1;
   transition: all .4s; }
 
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
 .btn--animated {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards;
   /* applies the opacity: 0; in the @keyframes moveInButton  */ }
+
+.header {
+  height: 95vh;
+  /* 95% of vertical height */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* trys to fit element into the box width wise */
+  background-position: top;
+  position: relative;
+  /* origin */
+  clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%); }
+  .header__logo-box {
+    /* container for thwe logo */
+    position: absolute;
+    top: 4rem;
+    /* from origin above in header */
+    left: 4rem;
+    /* from origin above in header */ }
+  .header__logo {
+    /* the logo */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    /*this margin work correctly and move the top edge to the 40% of height */
+    /* we used 40% in place of 50% due to the bottom wedge cutout it looks more centered */
+    left: 50%;
+    /*this margin work correctly and move the left hand edge to the 50% of width */
+    transform: translate(-50%, -50%);
+    /* this moves the top and left edges back -50% and that is the center */
+    text-align: center;
+    /* this centers the button text in the middle of this tex-box */ }
+
+.header__logo {
+  /* the logo */
+  height: 3.5rem; }
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  /*this margin work correctly and move the top edge to the 40% of height */
+  /* we used 40% in place of 50% due to the bottom wedge cutout it looks more centered */
+  left: 50%;
+  /*this margin work correctly and move the left hand edge to the 50% of width */
+  transform: translate(-50%, -50%);
+  /* this moves the top and left edges back -50% and that is the center */
+  text-align: center;
+  /* this centers the button text in the middle of this tex-box */ }
+
+/* animation-delay: 3s;
+animation-iteration-count: 3;
+animation-timing-function: ease-in;
+*/
