@@ -10,6 +10,7 @@
     background-position: top;
     position: relative;
     /* origin */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%);
 
 
@@ -60,4 +61,3 @@
     text-align: center;
     /* this centers the button text in the middle of this tex-box */
 }
-
