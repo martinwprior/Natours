@@ -1,55 +1,39 @@
 .header {
-    height: 95vh;
-    /* 95% of vertical height */
-    background-image: linear-gradient(to right bottom,
-            rgba($color-primary-light, 0.8),
-            rgba($color-primary-dark, 0.8)),
-        url(../img/hero.jpg);
-    background-size: cover;
-    /* trys to fit element into the box width wise */
-    background-position: top;
-    position: relative;
-    /* origin */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%);
+  height: 95vh;
+  /* 95% of vertical height */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  /* trys to fit element into the box width wise */
+  background-position: top;
+  position: relative;
+  /* origin */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%);
 
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+  }
+  &__logo-box {
+    /* container for thwe logo */
+    position: absolute;
+    top: 4rem;
+    /* from origin above in header */
+    left: 4rem;
+    /* from origin above in header */
+  }
 
-    &__logo-box {
-        /* container for thwe logo */
-        position: absolute;
-        top: 4rem;
-        /* from origin above in header */
-        left: 4rem;
-        /* from origin above in header */
-    }
-
-    &__logo {
-        /* the logo */
-        height: 3.5rem;
-    }
-
-    &__text-box {
-        position: absolute;
-        top: 40%;
-        /*this margin work correctly and move the top edge to the 40% of height */
-        /* we used 40% in place of 50% due to the bottom wedge cutout it looks more centered */
-        left: 50%;
-        /*this margin work correctly and move the left hand edge to the 50% of width */
-        transform: translate(-50%, -50%);
-        /* this moves the top and left edges back -50% and that is the center */
-        text-align: center;
-        /* this centers the button text in the middle of this tex-box */
-    }
-}
-
-
-
-.header__logo {
+  &__logo {
     /* the logo */
     height: 3.5rem;
-}
+  }
 
-.header__text-box {
+  &__text-box {
     position: absolute;
     top: 40%;
     /*this margin work correctly and move the top edge to the 40% of height */
@@ -60,4 +44,23 @@
     /* this moves the top and left edges back -50% and that is the center */
     text-align: center;
     /* this centers the button text in the middle of this tex-box */
+  }
+}
+
+.header__logo {
+  /* the logo */
+  height: 3.5rem;
+}
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  /*this margin work correctly and move the top edge to the 40% of height */
+  /* we used 40% in place of 50% due to the bottom wedge cutout it looks more centered */
+  left: 50%;
+  /*this margin work correctly and move the left hand edge to the 50% of width */
+  transform: translate(-50%, -50%);
+  /* this moves the top and left edges back -50% and that is the center */
+  text-align: center;
+  /* this centers the button text in the middle of this tex-box */
 }

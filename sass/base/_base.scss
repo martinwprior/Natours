@@ -4,13 +4,31 @@
   margin: 0px;
   padding: 0px;
   box-sizing: inherit;
-  /* allows the border box declared in body to be inherited in all declarations */ }
+  /* allows the border box declared in body to be inherited in all declarations */
+}
 
 html {
-  // this defines what 1 rem is
-  font-size: 62.5%;
-  /* this equates to 10px . We use this here and rems in the code below. changing this figure will scale site up/down */ }
+  font-size: 62.5%; //1 rem == 10px 10px / 16px = 62.5%
 
-body {
-  box-sizing: border-box;
+  @include respond(tab-land) {
+    // width less than 1200
+    font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+  }
+  @include respond(tab-port) {
+    // width less than 900
+    font-size: 50%; // 1rem = 8px , 8/16 =50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12px, 12/16 = 75%
+  }
+
+  body {
+    box-sizing: border-box;
+    padding: 3rem;
+    @include respond(tab-port) {
+      // width less than 900
+      padding: 0;
+    }
+  }
 }
